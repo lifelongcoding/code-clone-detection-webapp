@@ -1,0 +1,6 @@
+# IntelliJ IDEA project files and directories
+.idea
+# Streamlit related files and directories
+.streamlit
+# Python compiled bytecode cache directories
+__pycache__/
