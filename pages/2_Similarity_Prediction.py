@@ -33,6 +33,8 @@ st.session_state.code_input_2 = code2_input
 
 predict_button = st.sidebar.button("🚀 Predict Now")
 
+clear_button = st.sidebar.button("🧹 Clear Code Input")
+
 # Get config info
 model = st.session_state["confirmed_model"]
 prompt = st.session_state["confirmed_prompt"]
@@ -71,6 +73,12 @@ if predict_button:
             st.session_state.prediction_history.insert(0, history_entry)
         except Exception as e:
             st.error(f"❌ An error occurred during prediction: {e}")
+
+# --- Handle Clear Button Click ---
+if clear_button:
+    st.session_state.code_input_1 = ""
+    st.session_state.code_input_2 = ""
+    st.rerun()
 
 # --- Display the Latest Prediction Result ---
 if st.session_state.prediction_history:
